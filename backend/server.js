@@ -59,9 +59,9 @@ app.use("/api/admin", AdminRouter)
 app.use("/api/rss", RssRouter)
 
 //send angular index.html and use its routing
-app.get('*', (req, res, next) => {
-    return res.sendFile(path.join(dirname(fileURLToPath(import.meta.url)), 'public', 'index.html'))
-})
+// app.get('*', (req, res, next) => {
+//     return res.sendFile(path.join(dirname(fileURLToPath(import.meta.url)), 'public', 'index.html'))
+// })
 
 //handle any error
 app.use((err, req, res, next) => {
