@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+html, body { height: 100%; }
+body { margin: 0;padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: whitesmoke;}
+
+.mat-mdc-menu-panel.wider {
+    max-width: 400px;
+    // overflow: hidden;
+}
+
+//orange color report button in video component
+// html .orangebutton.mat-mdc-mini-fab.mat-accent {
+//     --mdc-fab-small-container-color: #FFAD00;
+// }
+
+//remove scroll from tab body in login/register component
+.removescroll {
+    overflow: hidden;
+
+    & .mat-mdc-tab-body-content {
+        overflow: hidden;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+// .shadow {
+//     // box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.2);
+//     // box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.07);
+//     // box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+// }
+
+.blur {
+    box-shadow: 0 0 1rem 0 rgba(206, 139, 32, 0.2);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+// a{
+//     color: darkgray;
+// }
+
+//orange border color
+// mat-form-field .mdc-notched-outline--notched{
+//     & .mdc-notched-outline__leading{
+//         border-color: #FFAD00 !important;
+//     }
+//     & .mdc-notched-outline__notch{
+//         border-color: #FFAD00 !important;
+//         & label{
+//             color: #FFAD00 !important;
+//         }
+//     }
+//     & .mdc-notched-outline__trailing{
+//         border-color: #FFAD00 !important;
+//     }
+// }
+
+// mat-form-field .mat-mdc-form-field-infix input{
+//     caret-color: #FFAD00 !important;
+// }
+
+
+// mat-tab-group{
+//     .mdc-tab__text-label{
+//         color: orange !important;
+//     }
+//     .mdc-tab-indicator__content.mdc-tab-indicator__content--underline{
+//         border-color: orange !important;
+//     }
+// }

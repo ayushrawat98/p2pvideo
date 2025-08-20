@@ -1,0 +1,78 @@
+nav {
+    padding: 8px 8px;
+    margin: auto;
+    width: 96%;
+    
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    // color: #FFAD00;
+    padding: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+a:hover {
+    background-color: #FFAD00;
+    color: white;
+}
+
+
+h1 {
+    color: #FFAD00;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.grey {
+    background-color: rgb(192, 183, 183);
+}
+
+.notifborder {
+    border-bottom: 1px solid darkgray;
+}
+
+.home, .bottomnav{
+    display: none;
+}
+
+
+@media (max-width : 950px) {
+    nav .rightnav{
+        display: none;
+    }
+    .bottomnav {
+        width: 100%;
+        // background-color: black;
+        display: flex;
+        justify-content: space-evenly;
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+        padding: 8px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        /* For Internet Explorer */
+        scrollbar-width: none;
+        /* For Firefox */
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+        }
+    }
+
+
+    .home{
+        display: inline-block;
+    }
+
+
+}

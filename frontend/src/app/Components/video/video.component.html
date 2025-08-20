@@ -1,0 +1,11 @@
+<div class="container" [@slideFromTop]>
+    <!-- [ngStyle]="{'border': showVideoBorder ? '1px solid darkgray' : ''}" -->
+    <video controls muted autoplay #videoplayer class="blur" poster="loading.png" >
+    </video>
+
+    <!-- <video [src]="baseUrl + videoId" controls muted autoplay class="blur" #videoplayer ></video> -->
+
+   <app-videodetail [videoId]="videoId" [videoDetail]="videoDetail" [subCount]="subCount" [action]="action"></app-videodetail>
+
+    <app-comment [videoId]="videoId" [userId]="videoDetail ? videoDetail.UploaderUserId : -1"></app-comment>
+</div>

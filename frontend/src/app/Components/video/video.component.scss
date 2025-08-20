@@ -1,0 +1,35 @@
+.container{
+    width: 96%;
+    margin: auto;
+}
+
+video{
+    // border: 1px solid darkgray;
+    border-radius: 6px;
+    width:100%;
+    max-height : 70vh;
+    
+}
+
+
+@media (min-width:1200px){
+
+    .container{
+        display: flex;
+        // gap:10px;
+        flex-wrap : wrap;
+    }
+
+    video{
+        width: 70%
+    }
+    
+    app-comment{
+        width: 30%;
+    }
+
+    app-videodetail{
+        order: 3;
+        width: 70%;
+    } 
+}

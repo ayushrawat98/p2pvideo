@@ -1,0 +1,87 @@
+<mat-tab-group>
+    <mat-tab label="Login" bodyClass="removescroll">
+        <div class="login" [formGroup]="loginform">
+            <mat-form-field appearance="outline">
+                <mat-label>username</mat-label>
+                <input matInput type="text" formControlName="username" />
+                @if (loginform.controls.username.hasError('required')) {
+                <mat-error>
+                    Username is required
+                </mat-error>
+                }
+                <!-- @if (loginform.controls.email.hasError('email')) {
+                    <mat-error>
+                        Not a valid email
+                    </mat-error>
+                } -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput type="password" formControlName="password" />
+                @if (loginform.controls.password.hasError('required')) {
+                <mat-error>
+                    Password is required
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" [disabled]="loginform.invalid" (click)="login()">Login</button>
+        </div>
+    </mat-tab>
+    <mat-tab label="Register" bodyClass="removescroll">
+        <div class="register" [formGroup]="registerform">
+            <mat-form-field appearance="outline">
+                <mat-label>username</mat-label>
+                <input matInput type="text" formControlName="username" />
+                @if (registerform.controls.username.hasError('required')) {
+                <mat-error>
+                    Username is required
+                </mat-error>
+                }@else if(registerform.controls.username.hasError('maxlength')){
+                <mat-error>
+                    Max length allowed is 16 characters.
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput type="password" formControlName="password" />
+                @if (registerform.controls.password.hasError('required')) {
+                <mat-error>
+                    Password is required
+                </mat-error>
+                }@else if(registerform.controls.password.hasError('maxlength')){
+                <mat-error>
+                    Max length allowed is 16 characters.
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>repeat password</mat-label>
+                <input matInput type="password" formControlName="repeatpassword" [errorStateMatcher]="matcher" />
+                @if (registerform.controls.repeatpassword.hasError('required')) {
+                <mat-error>
+                    Password is required
+                </mat-error>
+                }
+                @else if(registerform.controls.repeatpassword.hasError('maxlength')){
+                <mat-error>
+                    Max length allowed is 16 characters.
+                </mat-error>
+                }
+                @else if (registerform.hasError('dontmatch') ) {
+                <mat-error>
+                    Password do not match
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" [disabled]="registerform.invalid"
+                (click)="register()">Register</button>
+        </div>
+
+    </mat-tab>
+</mat-tab-group>

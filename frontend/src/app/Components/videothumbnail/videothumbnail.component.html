@@ -1,0 +1,14 @@
+<mat-card>
+    <img [src]="imgurl"  mat-card-image [routerLink]="'/video/' + videoDetails().id" (touchstart)="slideshowImageTouch()" (pointerenter)="slideshowImage($event)" (pointerleave)="stopSlideshow()" />
+    <mat-card-content> 
+        <h3 class="videotitle text" style="margin-bottom: 8px;">{{videoDetails().title}}</h3>
+        <h5 style="margin-bottom: 8px;">
+            @if (videoDetails().description.trim().length == 0) {
+                no description
+            }
+            {{videoDetails().description}}
+        </h5>
+        <a [routerLink]="'/user/'+videoDetails().UploaderUserId">{{'@' + videoDetails().Uploader.username}}</a>
+        <!-- <h5>{{videoDetails().views}} views | <span>{{videoDetails().commentcount}} comments</span> </h5> -->
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,13 @@
+<div [@slideFromTop]>
+    @if (subList && subList.SubscribedTo.length > 0) {
+        <mat-chip-listbox aria-label="subscribed profile">
+            @for (user of subList.SubscribedTo ; track user.id) {
+            <mat-chip-option>{{'@'+user.username}}</mat-chip-option>
+            }
+        </mat-chip-listbox>
+
+        <app-videolist [videoList]="allVideoList" [sortAllowed]="true" [latestFirst]="true"></app-videolist>
+    }@else{
+        <p class="center">No subscriptions! ┗( T﹏T )┛</p>
+    }
+</div>

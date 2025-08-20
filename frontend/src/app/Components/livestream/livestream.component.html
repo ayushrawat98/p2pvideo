@@ -1,0 +1,38 @@
+<div [@slideFromTop]>
+    <div style="display: flex; justify-content: center;">
+        <video class="center" #streamervideo height="300px" width="400px" autoplay controls muted
+            [hidden]="showStreamerVideo"></video>
+        <video class="center" #streamedvideo height="300px" width="400px" autoplay controls
+            [hidden]="showStreamedVideo"></video>
+    </div>
+    <br>
+    <div class=center [hidden]="!loggedIn()">
+        <button (click)="startStream()" [disabled]="startStreamDisabled" mat-stroked-button color="accent">Go
+            Live</button>
+        &nbsp;
+        <button (click)="endStream()" [disabled]="stopStreamDisabled" mat-stroked-button color="error">End Live</button>
+    </div>
+    <br />
+    <p class="center">Un-mute the video.</p>
+    <p class="center">If stream stops , try pulling the seek button till the end.</p>
+    <p class="center">Only one logged in user can be live at a time. </p>
+    <p class="center">Refresh before going live if someone was live before you. </p>
+
+    <div style="width: 80%;margin: auto;text-align: center;">
+        <mat-chip-set aria-label="Fish selection">
+            <mat-chip>Users online :</mat-chip>
+            @for (names of userName; track $index) {
+            <mat-chip>{{'@'+names}}</mat-chip>
+            }
+        </mat-chip-set>
+
+        <mat-form-field>
+            <mat-label>message:</mat-label>
+            <input #message matInput />
+        </mat-form-field>
+        <button mat-stroked-button color="primary" (click)="[sendText(message.value), message.value='']">Send</button>
+        @for (text of usertext ; track $index) {
+        <h2>{{text}}</h2>
+        }
+    </div>
+</div>

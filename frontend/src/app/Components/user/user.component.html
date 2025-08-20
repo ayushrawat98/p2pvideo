@@ -1,0 +1,22 @@
+<div [@slideFromTop]>
+    @if(loading){
+        <mat-spinner></mat-spinner>
+    }
+    @if(!loading && user){
+    <h1 style="color: black;">{{'@'}}{{user.username}} videos
+        <!-- @if (loggedIn()) {
+        <button style="color: #FFAD00;" mat-stroked-button color="accent" (click)="subscribe()">{{ amISub ? "Unsubscribe"
+            : "Subscribe"}}<mat-icon>add</mat-icon></button>
+        } -->
+    </h1>
+    @if (uploadedVideoList && uploadedVideoList.length > 0) {
+    <app-videolist [videoList]="uploadedVideoList" [sortAllowed]="true" [latestFirst]="true"></app-videolist>
+    }
+    @if(uploadedVideoList && uploadedVideoList.length == 0) {
+    <p style="text-align: center; color: black;">No Videos! (•ˋ _ ˊ•)</p>
+    }
+    <br /><br />
+    }@else if(!loading && !user){
+    <p class="center">This user doesn't exist, young lady 🙏</p>
+    }
+</div>

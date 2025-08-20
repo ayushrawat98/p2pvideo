@@ -1,0 +1,24 @@
+delete user by id
+<input #userid />
+<button (click)="deleteuser(userid.value)">delete</button>
+<br>
+
+delete video by id
+<input #videoid/>
+<button (click)="deletevideo(videoid.value)">delete</button>
+<br>
+
+delete comment by id
+<input #commentid/>
+<button (click)="deletecomment(commentid.value)">delete</button>
+<br>
+
+
+<h2>report list</h2>
+<button (click)="getReport()">refresh</button>
+<!-- 
+@for (report of reportList; track $index) {
+    <a [routerLink]="'/video/'+report.id">video id : {{report.id}}</a>
+    <p>reports  : {{report.reportCount}}</p>
+    <button (click)="deletevideo(report.id)">delete</button>
+} -->

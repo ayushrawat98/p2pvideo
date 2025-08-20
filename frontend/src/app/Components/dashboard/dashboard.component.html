@@ -1,0 +1,55 @@
+<!-- <br/>
+<mat-tab-group>
+    <mat-tab label="New">
+        <div [@slideFromTop]>
+            @if (loading) {
+            <mat-spinner></mat-spinner>
+            }
+        
+            @if (!loading && allvideo && allvideo.rows.length > 0) {
+            <h2 #latest></h2>
+            
+            <app-videolist [videoList]="allvideo.rows" [sortAllowed]="false" [latestFirst]="true"></app-videolist>
+        
+            <br>
+            <mat-paginator [length]="allvideo.count" [pageIndex]="pageNumber" [pageSize]="12" (page)="goToPage($event)"
+                showFirstLastButtons="true">
+            </mat-paginator>
+            }
+        
+            @if(!loading && allvideo && allvideo.rows.length == 0) {
+            <p style="text-align: center; color: darkgray;">No Videos! (•ˋ _ ˊ•)</p>
+            }
+            <br /><br /><br />
+        </div>
+    </mat-tab>
+    <mat-tab label="Trending">
+        <h2></h2>
+        <app-videolist [videoList]="trendingVideo" [sortAllowed]="false" [latestFirst]="false"></app-videolist>
+        <br><br><br>
+    </mat-tab>
+</mat-tab-group> -->
+
+
+
+<div [@slideFromTop]>
+    @if (loading) {
+    <mat-spinner></mat-spinner>
+    }
+
+    @if (!loading && allvideo && allvideo.rows.length > 0) {
+    <h2 #latest></h2>
+    
+    <app-videolist [videoList]="allvideo.rows" [sortAllowed]="false" [latestFirst]="true"></app-videolist>
+
+    <br>
+    <mat-paginator [length]="allvideo.count" [pageIndex]="pageNumber" [pageSize]="12" (page)="goToPage($event)"
+        showFirstLastButtons="true">
+    </mat-paginator>
+    }
+
+    @if(!loading && allvideo && allvideo.rows.length == 0) {
+    <p style="text-align: center; color: black;">No Videos! (•ˋ _ ˊ•)</p>
+    }
+    <br /><br /><br />
+</div>

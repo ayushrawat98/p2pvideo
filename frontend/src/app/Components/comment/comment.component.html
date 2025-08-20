@@ -1,0 +1,24 @@
+<div class="container">
+  @if(loggedIn()){
+  <div class="commentsinput">
+    <mat-form-field [subscriptSizing]="'dynamic'" appearance="outline">
+      <mat-label>Leave a comment</mat-label>
+      <textarea rows="3" matInput [formControl]="commentFormControl"></textarea>
+      <button mat-icon-button matSuffix [attr.aria-label]="'send'"
+        [disabled]="commentFormControl.value.trim().length == 0" (click)="postComment()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  }@else {
+  <p class="nologincommentsinput">Login to comment</p>
+  }
+  <div class="comments">
+    @for (comment of comments; track comment.id) {
+    <app-comment-subcomment [comment]="comment" [videoId]="videoId()" [userId]="userId()"
+      (updateComments)="getComments()"></app-comment-subcomment>
+    }
+    <!-- for mobile view -->
+    <br /><br /><br />
+  </div>
+</div>

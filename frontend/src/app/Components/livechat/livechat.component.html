@@ -1,0 +1,30 @@
+<div style="width: 80%; margin:auto; text-align: center;" [@slideFromTop]>
+    @if (loggedIn()) {
+    <mat-chip-set>
+        <mat-chip>Users online :</mat-chip>
+        @for (names of allUsers; track $index) {
+        <mat-chip>{{'@'+names}}</mat-chip>
+        }
+    </mat-chip-set>
+
+    <button (click)="sendAudio()" [disabled]="sendAudioDisabled" mat-stroked-button color="accent">Start
+        Recording</button>
+    &nbsp;
+    <button (click)="stopAudio()" [disabled]="stopAudioDisabled" mat-stroked-button color="error">Send
+        Recording</button>
+
+    <br />
+    <hr />
+
+    <mat-form-field>
+        <mat-label>message:</mat-label>
+        <input #message matInput />
+    </mat-form-field>
+    <button mat-stroked-button color="primary" (click)="[sendText(message.value), message.value='']">Send</button>
+    @for (text of usertext ; track $index) {
+    <h2>{{text}}</h2>
+    }
+    }@else {
+    <h1>Login to use</h1>
+    }
+</div>

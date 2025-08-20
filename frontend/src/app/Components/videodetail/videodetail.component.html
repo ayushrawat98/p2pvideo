@@ -1,0 +1,62 @@
+@if(videoDetail()){
+
+<!-- <div class="videodetailcontainer" style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <button mat-fab extended (click)="actionClick('like')" [ngClass]="{'green' : userChoice == 'like'}">
+      <mat-icon>thumb_up</mat-icon> {{likes}}
+    </button>
+    &nbsp;
+    <button mat-fab extended (click)="actionClick('dislike')" [ngClass]="{'red' : userChoice == 'dislike'}">
+      <mat-icon>thumb_down</mat-icon> {{dislikes}}
+    </button>
+    &nbsp;
+    <a [href]="videoDetail().infoHash" target="_blank">
+    <button mat-fab>
+      <mat-icon>cloud_download</mat-icon>
+    </button>
+    </a>
+    
+    
+  </div>
+  @if(isLoggedIn()){
+    <button style="color: #FFAD00;" mat-stroked-button color="accent" (click)="subscribe()"> {{ amISub ? "Unsubscribe" :
+      "Subscribe"}} </button>
+
+  }
+</div> -->
+
+<div class="videodetailcontainer">
+  <div style="display: flex; justify-content: space-between;align-items: center; margin-bottom: 8px;">
+    <h1 style="margin-bottom: 0px; font-weight:700;">{{videoDetail().title }}</h1>
+    <div>
+      <button mat-icon-button matTooltip="Share" class="orangebutton" (click)="share()">
+        <mat-icon>share</mat-icon>
+      </button>
+      <a [href]="videoDetail().infoHash" target="_blank"><mat-icon>link</mat-icon></a>
+      
+    </div>
+  </div>
+  <h4 style="margin-bottom: 8px;">{{videoDetail().description}}</h4>
+  <h5 style="margin-bottom: 8px;"> {{videoDetail().views}} views | {{videoDetail().createdAt | date : 'd MMM y , h:mma'}}</h5>
+  <h5 style="margin-bottom: 8px;">
+    <a style="font-size: 14px;" [routerLink]="'/user/'+videoDetail().UploaderUserId">{{'@'+videoDetail().Uploader.username}}</a>
+    <!-- &nbsp;
+    <button mat-flat-button disabled="">{{subCount()}} {{subCount() == 1 ? 'Subscriber' : 'Subscribers'}}</button>
+    &nbsp;
+    @if(isLoggedIn()){
+      <button style="color: #FFAD00;" mat-stroked-button color="accent" (click)="subscribe()"> {{ amISub ? "Unsubscribe" :
+        "Subscribe"}} </button>
+  
+    } -->
+  </h5>
+  <!-- <div> 
+          <button mat-stroked-button color="warn" (click)="report()">Report</button>  
+        </div> -->
+
+  <!-- for admin -->
+  @if(isAdmin()){
+  <button (click)="deleteVideo()">Delete this video</button>
+  }
+
+</div>
+}

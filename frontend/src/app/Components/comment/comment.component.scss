@@ -1,0 +1,40 @@
+
+
+.comments{
+    height:320px;
+    overflow-y: scroll;
+    // padding-top: 16px;
+    // position: relative;
+}
+
+.comments::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.commentsinput{
+    // position: sticky;
+    // top: 0;
+    // margin-top: 8px;
+    margin : 0 0 8px;
+    width: 100%;
+    // background-color: white;
+    // z-index: 2;
+    mat-form-field{
+        width: 100%;
+    }
+}
+
+@media (min-width:1200px){
+  .comments{
+    height: 400px;
+  }
+
+  .container{
+    padding: 0 0 0 8px;
+  }
+}
+
+
+.nologincommentsinput{
+  text-align: center;
+}

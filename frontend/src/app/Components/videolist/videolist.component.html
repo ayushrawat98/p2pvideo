@@ -1,0 +1,6 @@
+
+<div class="flex">
+    @for (details of videoList() | sort : sortAllowed() : latestFirst(); track details.id) {
+    <app-videothumbnail [videoDetails]="details"></app-videothumbnail>
+    }
+</div>

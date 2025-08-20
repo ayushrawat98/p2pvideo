@@ -1,0 +1,35 @@
+<div class="p">
+    <div style="white-space: pre-line;">
+        <span [ngClass]="{'usercolor' : userId() == comment().CommentorUserId}">
+            {{'@'+ comment().Commentor?.username}}
+        </span>
+         {{' : ' + comment().comment}}
+    </div>
+
+    @if(comment().ChildComments && comment().ChildComments?.length){
+        <a mat-button (click)="showSubcomment = !showSubcomment">{{comment().ChildComments?.length}} replies</a>
+    }
+
+    @if(loggedIn()){
+    <a mat-button (click)="[addUserName(), showReply = !showReply]">{{showReply ? "Cancel" : "Reply"}}</a>
+    }
+
+    @if(showReply){
+        <br/>
+        <mat-form-field [subscriptSizing]="'dynamic'" appearance="outline" style="width: 100%;">
+            <mat-label>Leave a comment</mat-label>
+            <input matInput [formControl]="commentFormControl"/>
+            <button mat-icon-button matSuffix [attr.aria-label]="'send'" (click)="postComment()"
+              [disabled]="commentFormControl.value.trim().length == 0">
+              <mat-icon>send</mat-icon>
+            </button>
+          </mat-form-field>
+    }
+
+    @if(showSubcomment){
+        @for (subcomment of comment().ChildComments | sort : true : false; track subcomment.id) {
+            <app-comment-subcomment [comment]="subcomment" [videoId]="videoId()" [userId]="userId()" (updateComments)="updateTopComments()"></app-comment-subcomment>
+        }
+    }
+
+  </div>

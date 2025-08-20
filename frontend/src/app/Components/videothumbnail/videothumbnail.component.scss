@@ -1,0 +1,48 @@
+img{
+    border-radius: inherit;
+    // touch-action: pan-y
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+mat-card{
+    max-width: 320px;
+    // background-color: rgb(31, 30, 30);
+}
+
+.videotitle{
+    font-weight: 500;
+    // line-height: 1.4rem;
+    // max-height: 3.2rem;
+}
+
+.text{
+    // display: -webkit-box;
+    // -webkit-line-clamp: 2;
+    // line-clamp: 2;
+    // -webkit-box-orient: vertical;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+h5{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.temp{
+    // color: white;
+    // background-color: #FFAD00;
+    margin-left: 8px;
+    padding: 2px;
+}
+
+@media (max-width : 750px) {
+    mat-card { 
+        width: 364px;
+    }
+}

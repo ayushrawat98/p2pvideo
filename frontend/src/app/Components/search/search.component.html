@@ -1,0 +1,13 @@
+@for (name of namelist; track name.id) {
+<div [routerLink]="'/user/'+name.id">{{'@'+name.username}}</div>
+}
+@for (name of videolist; track name.id) {
+<div [routerLink]="'/video/'+name.id">
+    <img [src]="baseUrl +'/video/thumbnail/'+name.id"/>
+    {{name.title}}
+</div>
+}
+
+@if(namelist && videolist && namelist.length == 0 && videolist.length == 0){
+<p class="center">Found nothing ＞﹏＜</p>
+}

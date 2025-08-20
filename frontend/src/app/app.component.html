@@ -1,0 +1,94 @@
+<nav >
+  <h1 routerLink="/">BharatTube</h1>
+
+  <div style="width:33%">
+    <mat-form-field appearance="outline" style="width: 100%;" subscriptSizing="dynamic" >
+      <mat-label>Search</mat-label>
+      <input matInput type="text" #searchString (keydown.enter)="enterPressed(searchString.value)"/>
+      <button
+        mat-icon-button
+        matSuffix
+        [routerLink]="'/search/'+searchString.value"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  
+ 
+  <div class="rightnav">
+    <a class="home" [routerLink]="'/'">Home</a>
+    <a (click)="showBottomUpload()">Upload</a>
+    <!-- <a [routerLink]="'/livestream'">Live</a> -->
+    @if(loggedIn()){
+      <!-- <a  [routerLink]="'/livechat'">Voice Chat</a> -->
+      
+      @if(user_data().isAdmin){
+        <a [routerLink]="'/admin'">{{'@'+user_data().username}}</a>
+      }@else {
+        <a [routerLink]="'/profile'">{{'@'+user_data().username}}</a>
+      }
+
+      <!-- <a [routerLink]="'/subscription'">Subscription</a> -->
+      <a [matBadge]="notReadNotification" [matMenuTriggerFor]="menu"
+        (menuOpened)="[]" [matBadgeHidden]="notReadNotification == 0">
+        नो
+      </a>
+      <a (click)="logout()">Logout</a>
+    }@else{
+      <a (click)="showBottomLoginRegister()">Login</a>
+    }  
+  </div>
+
+</nav>
+
+<mat-menu #menu="matMenu" class="wider">
+  <a style="border: 1px solid #FFAD00; width: 100%; text-align: center;margin-bottom: 8px;" (click)="markAsReadNotification()">Mark all as read</a>
+
+  @if (notificationData && notificationData.rows.length == 0) {
+    <div style="text-align: center; color: black; width: 300px;">No Notification＼(ﾟｰﾟ＼)</div>
+  }
+
+  @if(notificationData){
+  @for (notif of notificationData.rows; track $index) {
+  <button mat-menu-item class="notifborder" [ngClass]="{'grey': !notif.viewed}" [routerLink]="'/video/'+notif.videoId">
+    {{'@'+notif.commentor}} commented : {{notif.message}}...
+    <br>
+    <span style="font-size: 10px;">{{notif.createdAt | date : 'd MMM y , h:mm a'}}</span>
+  </button>
+  }
+  <mat-paginator (click)="$event.stopPropagation()" [length]="notificationData.count" [pageIndex]="notificationPageNumber" [pageSize]="4"
+    (page)="goToPage($event)">
+  </mat-paginator>
+  }
+
+</mat-menu>
+
+
+
+<router-outlet></router-outlet>
+
+
+<div class="bottomnav">
+  <a class="home" [routerLink]="'/'">Home</a>
+  <a (click)="showBottomUpload()">Upload</a>
+  <!-- <a [routerLink]="'/livestream'">Live</a> -->
+  @if(loggedIn()){
+    <!-- <a  [routerLink]="'/livechat'">Voice Chat</a> -->
+    
+    @if(user_data().isAdmin){
+      <a [routerLink]="'/admin'">{{'@'+user_data().username}}</a>
+    }@else {
+      <a [routerLink]="'/profile'">{{'@'+user_data().username}}</a>
+    }
+
+    <!-- <a [routerLink]="'/subscription'">Subscription</a> -->
+    <a [matBadge]="notReadNotification" [matMenuTriggerFor]="menu"
+      (menuOpened)="[]" [matBadgeHidden]="notReadNotification == 0">
+      नो
+    </a>
+    <a (click)="logout()">Logout</a>
+  }@else{
+    <a (click)="showBottomLoginRegister()">Login</a>
+  }  
+</div>

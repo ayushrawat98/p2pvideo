@@ -1,0 +1,23 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+    padding-top: 24px;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+    padding-top: 24px;
+}
+
+mat-tab-group{
+    width: 96%;
+    margin: auto;
+}
+
