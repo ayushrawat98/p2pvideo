@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 //serve index.html
-// app.use(express.static(path.join(dirname(fileURLToPath(import.meta.url)), "public"), {etag : false, maxAge : "1h"}));
+app.use(express.static(path.join(dirname(fileURLToPath(import.meta.url)), "public"), {etag : false, maxAge : "1h"}));
 
 //parse json data
 app.use(express.json())
