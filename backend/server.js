@@ -51,12 +51,12 @@ app.use(ipMiddleware)
 syncer()
 
 //routes
-app.use("/api/video", VideoRouter)
-app.use("/api/authenticate", AuthenticateRouter)
-app.use("/api/user", UserRouter)
-app.use("/api/comment", CommentController)
-app.use("/api/admin", AdminRouter)
-app.use("/api/rss", RssRouter)
+app.use("/video", VideoRouter)
+app.use("/authenticate", AuthenticateRouter)
+app.use("/user", UserRouter)
+app.use("/comment", CommentController)
+app.use("/admin", AdminRouter)
+app.use("/rss", RssRouter)
 
 //send angular index.html and use its routing
 // app.get('*', (req, res, next) => {
