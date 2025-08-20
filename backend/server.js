@@ -65,7 +65,7 @@ app.get('*', (req, res, next) => {
 
 //handle any error
 app.use((err, req, res, next) => {
-    return res.status(500).send('Something broke!')
+    return res.status(500).send(err)
 })
 
 
